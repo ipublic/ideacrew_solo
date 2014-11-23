@@ -9,19 +9,22 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 4.0.3'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
 
-# gem 'therubyracer'  # If using Ruby
-gem 'less-rails-bootstrap'
-gem 'designmodo-flatuipro-rails', '~> 1.3.1.0.branch'
+# gem 'designmodo-flatuipro-rails', '~> 1.3.1.0.branch'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+group :development, :test do
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+
+  gem 'font-awesome-rails', '4.2.0.0'
+  gem 'less-rails-bootstrap'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'capistrano', '~> 3.2.1'
+end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

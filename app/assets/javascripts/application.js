@@ -17,9 +17,10 @@
 //= require jquery-ui/spinner
 //= require jquery-ui/tooltip
 //= require jquery-ui/effect
-//= require flatuipro
 //= require jquery_ujs
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/alert
+//= require twitter/bootstrap/dropdown
+//= require twitter/bootstrap/collapse
 //= require turbolinks
 //= require_tree .

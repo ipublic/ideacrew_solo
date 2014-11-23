@@ -19,6 +19,10 @@ group :development, :test do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '>= 1.3.0'
 
+  # LESS compiler dependency
+  gem 'therubyracer', :platforms => :ruby
+
+
   gem 'font-awesome-rails', '4.2.0.0'
   gem 'less-rails-bootstrap'
   gem 'coffee-rails', '~> 4.0.0'

@@ -18,6 +18,7 @@
 //= require jquery-ui/tooltip
 //= require jquery-ui/effect
 //= require jquery_ujs
+//= require jQuery-One-Page-Nav-master/jquery.nav
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/dropdown

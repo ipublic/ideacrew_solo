@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require custom_bootstrap/custom_bootstrap
+ *= require font-awesome
  *= require jquery-ui
  *= require ideacrew
  *= require_tree .

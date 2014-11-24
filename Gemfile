@@ -22,7 +22,6 @@ group :development, :test do
   # LESS compiler dependency
   gem 'therubyracer', :platforms => :ruby
 
-
   gem 'font-awesome-rails', '4.2.0.0'
   gem 'less-rails-bootstrap'
   gem 'coffee-rails', '~> 4.0.0'

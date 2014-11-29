@@ -17,7 +17,6 @@
 body {
   position: relative;
   min-height: 2000px;
-  padding-top: 30px;
 }
 
 img {
@@ -25,8 +24,15 @@ img {
 }
 
 section {
-  padding-bottom: 10px;
+  // border-bottom: 5px solid #ccc;
+  min-height: 60vh;
+  padding: 50px 20px;
 }
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
 .navbar {
   border-radius: 0;
   position: fixed;
@@ -39,8 +45,8 @@ section {
 }
 
 .jumbotron {
-  border-radius: 0;
-  padding: 0;
+  // border-radius: 0;
+  // padding: 0;
 }
 
 .showcase-item {
@@ -67,11 +73,11 @@ dl.dl-horizontal {
     }
 }
 
+.text-centered { text-align: center; }
+.no-margin { margin: 0; }
+.full-width { width: 100% }
 .white-bg { background: #fff; color: #333}
 .black-bg { background: #333; }
 .khaki-bg { background: #C2B59B; }
 .lighter-violet-bg { background: #5E60A4; }
-.text-centered { text-align: center; }
-.no-margin { margin: 0; }
-.full-width { width: 100% }
 

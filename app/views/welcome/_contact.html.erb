@@ -1,0 +1,14 @@
+<h1>Contact us!</h1>
+<p>We love to talk</p>
+<div class="col-md-6">
+  <%= form_tag welcome_contact_us_path, :method => 'get' do %>
+  <ul id="contact_us">
+  <li><div class="input-group margin-bottom-sm">
+    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+    <input class="form-control" type="text" placeholder="Email address"></div></li>
+  </div>
+    <li><%= text_field_tag :email, nil, class: "form-control" placeholder: 'Your email address...' %></li>
+    <li><%= submit_tag 'Sign Up', :name => nil, :class => "submit" %></li>
+  </ul>
+  <% end %>
+</div>

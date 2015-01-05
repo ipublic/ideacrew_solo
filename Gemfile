@@ -14,6 +14,7 @@ gem 'sqlite3'
 # gem 'designmodo-flatuipro-rails', '~> 1.3.1.0.branch'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'animate-rails', '~> 1.0.7'
 
 group :development, :test do
   # Use Uglifier as compressor for JavaScript assets

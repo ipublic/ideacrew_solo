@@ -1,7 +1,12 @@
 $(document).ready(function() {
+
   $('#top-nav').onePageNav({
     currentClass: 'active',
     changeHash: false
+  });
+
+  $('#about-header').one('inview', function() {
+    $(this).addClass('animated fadeInUp');
   });
 });
 

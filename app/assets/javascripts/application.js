@@ -19,6 +19,7 @@
 //= require jquery-ui/effect
 //= require jquery_ujs
 //= require jQuery-One-Page-Nav-master/jquery.nav
+//= require jquery.inview-master/jquery.inview.js
 //= require twitter/bootstrap/modal
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/dropdown

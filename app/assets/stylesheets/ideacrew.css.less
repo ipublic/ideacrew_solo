@@ -14,19 +14,33 @@
 // @brand-warning:         #f0ad4e;
 // @brand-danger:          #d9534f;
 
-body {
+
+@import url(http://fonts.googleapis.com/css?family=Muli:400,400italic);
+
+html, body {
   position: relative;
-  min-height: 2000px;
+  height: 100%;
+  width: 100%;
+  font-family: 'Muli', sans-serif;
 }
 
 img {
   max-width: 100%
+  height: auto;
 }
 
 section {
   // border-bottom: 5px solid #ccc;
-  min-height: 60vh;
   padding: 50px 20px;
+}
+
+container {
+  height: 100%;
+  width: 100%;  
+}
+
+footer .footer {
+  height: 100px;
 }
 
 .section p:last-child {
@@ -40,31 +54,36 @@ section {
   padding: 0 20px;
 }
 
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 500;
+}
+
 .scroll-panel {
   padding-top: 40px;
 }
 
 .jumbotron {
-  // border-radius: 0;
-  // padding: 0;
+  // min-height: 100%;  /* Fallback for browsers that do NOT support vh unit */
+  // min-height: 60vh;
+  height: 100%;
+  width: 100%;
+
 }
 
 .showcase-item {
   height: 220px;
   padding: 2px;
+  text-align: center;
 }
 
 .showcase-item .showcase-item-box {
-    background: #C2B59B;
+    // background: #C2B59B;
     color: #ffffff;
     padding: 40px;
     height: 100%;
-    width: 100%;
-    text-align: center;
-  }
-
-dl {font-weight: bold;}
-dt {font-weight: normal;}
+    width: 100%;  
+}
 
 // Fix Bootstrap aligment problem on blank definitions by appending an &nbsp;
 dl.dl-horizontal {
@@ -73,11 +92,25 @@ dl.dl-horizontal {
     }
 }
 
+.vertical-centered {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
 .text-centered { text-align: center; }
+.text-left-justified { text-align: left; }
+.text-right-justified { text-align: right; }
 .no-margin { margin: 0; }
 .full-width { width: 100% }
+.horizontal-centered { width: auto}
 .white-bg { background: #fff; color: #333}
 .black-bg { background: #333; }
-.khaki-bg { background: #C2B59B; }
+.khaki-bg { background: #C2B59B }
+.khaki-color { color: #C2B59B; }
+.purple-color { color: #333363 }
+.bold { font-weight: 500; }
 .lighter-violet-bg { background: #5E60A4; }
 

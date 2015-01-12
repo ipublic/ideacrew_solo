@@ -1,14 +1,42 @@
-<h1>Contact us!</h1>
-<p>We love to talk</p>
-<div class="col-md-6">
+<h1>Get In Touch</h1>
+<h1><small>Interested in learning more? Want to join our amazing team? Send us a note and a team member will contact you</small></h1>
+
+<div id="contact-form" class="col-md-offset-3 col-md-6">
   <%= form_tag welcome_contact_us_path, :method => 'get' do %>
-  <ul id="contact_us">
-  <li><div class="input-group margin-bottom-sm">
-    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-    <input class="form-control" type="text" placeholder="Email address"></div></li>
-  </div>
-    <li><%= text_field_tag :email, nil, class: "form-control" placeholder: 'Your email address...' %></li>
-    <li><%= submit_tag 'Sign Up', :name => nil, :class => "submit" %></li>
-  </ul>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="form-group required">
+          <%= label_tag :name %>
+          <%= text_field_tag "name", nil, class: "form-control", required: true %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="form-group required">
+          <%= label_tag :email %>
+          <%= email_field_tag "email", nil, class: "form-control", required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group required">
+          <%= label_tag :subject %>
+          <%= text_field_tag "subject", nil, class: "form-control", required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group required">
+          <%= label_tag :message %>
+          <%= text_area_tag "message", nil, class: "form-control", required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <%= submit_tag 'Submit', :name => nil, type: "submit", class: "btn btn-primary btn-lg btn-block", rows: 5 %>
+      </div>
+    </div>
   <% end %>
 </div>

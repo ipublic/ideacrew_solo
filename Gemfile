@@ -31,10 +31,10 @@ group :development, :test do
 
 
   # Use Capistrano for deployment
-  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
-  gem 'capistrano-rbenv', "~> 2.0" 
+  gem 'capistrano-rbenv'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

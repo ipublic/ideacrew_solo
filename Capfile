@@ -14,13 +14,15 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/bundler
 #   https://github.com/capistrano/rails
 #
-# require 'capistrano/rvm'
 require 'capistrano/rbenv'
-# require 'capistrano/chruby'
 require 'capistrano/bundler'
-# require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
+require 'capistrano/rails/assets'
+# require 'capistrano/rails/migrations'
 require 'capistrano/nginx_unicorn'
+
+# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+
 # require 'capistrano/cookbook'
 # require 'capistrano/cookbook/compile_assets_locally'
 # require 'capistrano/cookbook/create_database'
@@ -31,8 +33,5 @@ require 'capistrano/nginx_unicorn'
 # require 'capistrano/cookbook/run_tests'
 # require 'capistrano/cookbook/setup_config'
 
-# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
-Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
-
-# Load custom task helper functions
-Dir.glob('lib/capistrano/**/*.rb').each { |r| import r }
+# # Load custom task helper functions
+# Dir.glob('lib/capistrano/**/*.rb').each { |r| import r }

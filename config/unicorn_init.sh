@@ -5,8 +5,8 @@ set -e
 
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=/home/deployer/apps/gluedb/current
-PID=/home/deployer/apps/gluedb/shared/pids/unicorn.pid
+APP_ROOT=/home/deploy/www/ideacrew.com/current
+PID=/home/deploy/www/ideacrew.com/shared/pids/unicorn.pid
 CMD="$APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 action="$1"
 set -u

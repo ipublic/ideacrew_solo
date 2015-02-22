@@ -4,27 +4,36 @@ lock '3.3.5'
 # Setup following tutorial: 
 # http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/
 
-set :application, 'ideacrew'
-set :deploy_user, 'deploy'
+set :application, 'ideacrew.com'
 
 # Default value for :scm is :git
 set :scm, :git
 set :repo_url, 'git@github.com:ipublic/ideacrew_solo.git'
+# set :repo_url, 'git@github.com:ipublic/ideacrew_solo.git'
 # set :repo_url, 'git@example.com:me/my_repo.git'
 
+# Default deploy_to directory is /var/www/my_app
+# set :deploy_to, '/home/deploy/www/ideacrew.com'
+
+
+
+set :rbenv_path, "~/.rbenv"
 set :rbenv_type, :system
-set :rbenv_ruby, '2.1.1'
+set :rbenv_ruby, "2.1.2"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH", gem_path: "/home/deploy/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0" }
+
+
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+# set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # what specs should be run before deployment is allowed to
 # continue, see lib/capistrano/tasks/run_tests.cap
@@ -34,12 +43,11 @@ set :tests, []
 # see documentation in lib/capistrano/tasks/setup_config.cap
 # for details of operations
 set(:config_files, %w(
-  nginx.conf
   database.example.yml
   log_rotation
-  monit
   unicorn.rb
   unicorn_init.sh
+  nginx.conf
 ))
 
 # which config files should be made executable after copying
@@ -54,20 +62,21 @@ set(:executable_config_files, %w(
 set(:symlinks, [
   {
     source: "nginx.conf",
-    link: "/etc/nginx/sites-enabled/#{fetch(:full_app_name)}"
-  },
-  {
-    source: "unicorn_init.sh",
-    link: "/etc/init.d/unicorn_#{fetch(:full_app_name)}"
+    link: "/etc/nginx/conf.d/#{fetch(:full_app_name)}"
   },
   {
     source: "log_rotation",
    link: "/etc/logrotate.d/#{fetch(:full_app_name)}"
-  },
-  {
-    source: "monit",
-    link: "/etc/monit/conf.d/#{fetch(:full_app_name)}.conf"
   }
+  # {
+  #   source: "unicorn_init.sh",
+  #   link: "/etc/init.d/unicorn_#{fetch(:full_app_name)}"
+  #   link: "/home/#{fetch(:deploy_user)}/www/#{fetch(:full_app_name)}"
+  # },
+  # {
+  #   source: "monit",
+  #   link: "/etc/monit/conf.d/#{fetch(:full_app_name)}.conf"
+  # }
 ])
 
 # Default deploy_to directory is /var/www/my_app
@@ -80,7 +89,8 @@ set(:symlinks, [
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
+set :use_sudo, true
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -89,34 +99,33 @@ set(:symlinks, [
 # is worth reading for a quick overview of what tasks are called
 # and when for `cap stage deploy`
 
-
 namespace :deploy do
 
   # make sure we're deploying what we think we're deploying
-  before :deploy, "deploy:check_revision"
+  # before :deploy, "deploy:check_revision"
 
   # only allow a deploy with passing tests to deployed
-  before :deploy, "deploy:run_tests"
+  # before :deploy, "deploy:run_tests"
 
   # compile assets locally then rsync
-  after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
-  after :finishing, 'deploy:cleanup'
+  # after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
+  # after :finishing, 'deploy:cleanup'
 
   # remove the default nginx configuration as it will tend
   # to conflict with our configs.
-  before 'deploy:setup_config', 'nginx:remove_default_vhost'
+  # before 'deploy:setup_config', 'nginx:remove_default_vhost'
 
   # reload nginx so it will pick up any modified vhosts from
   # setup_config
-  after 'deploy:setup_config', 'nginx:reload'
+  # after 'deploy:setup_config', 'nginx:reload'
 
   # Restart monit so it will pick up any monit configurations
   # we've added
-  after 'deploy:setup_config', 'monit:restart'
+  # after 'deploy:setup_config', 'monit:restart'
 
   # As of Capistrano 3.1, the `deploy:restart` task is not called
   # automatically.
-  after 'deploy:publishing', 'deploy:restart'
+  # after 'deploy:publishing', 'deploy:restart'
 
 
   desc 'Restart application'
@@ -127,7 +136,7 @@ namespace :deploy do
     end
   end
 
-  # after :publishing, :restart
+  after :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

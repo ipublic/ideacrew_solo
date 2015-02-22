@@ -1,4 +1,4 @@
-root = "/home/deploy/www/ideacrew.com/current"
+root = "/home/deploy/www/ideacrew.com_production/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"

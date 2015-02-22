@@ -41,6 +41,8 @@ set :rails_env, :production
 # number of unicorn workers, this will be reflected in
 # the unicorn.rb and the monit configs
 set :nginx_server_name, "ideacrew.com"
+set :unicorn_config, "/home/#{fetch(:deploy_user)}/www/#{fetch(:full_app_name)}/config/unicorn.rb"
+set :unicorn_pid,    "/home/#{fetch(:deploy_user)}/www/#{fetch(:full_app_name)}/tmp/pids/unicorn.pid"
 set :unicorn_workers, 4
 
 # whether we're using ssl or not, used for building nginx

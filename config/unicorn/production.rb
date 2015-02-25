@@ -1,5 +1,5 @@
 app_path = "/home/deploy/www/ideacrew_production"
-working_directory "#{app_path}/current"
+working_directory = "#{app_path}/current"
 pid "#{working_directory}/tmp/pids/unicorn.pid"
 
 listen "/tmp/unicorn.ideacrew.com.sock", :backlog => 64

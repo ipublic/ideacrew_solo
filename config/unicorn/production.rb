@@ -1,4 +1,4 @@
-app_path = "/home/deploy/www/ideacrew.com_production"
+app_path = "/home/deploy/www/ideacrew_production"
 working_directory "#{app_path}/current"
 pid "#{app_path}/current/tmp/pids/unicorn.pid"
 

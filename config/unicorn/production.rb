@@ -1,19 +1,19 @@
 app_path = "/home/deploy/www/ideacrew_production"
 working_directory "#{app_path}/current"
-pid "#{app_path}/current/tmp/pids/unicorn.pid"
+pid "#{working_directory}/tmp/pids/unicorn.pid"
 
 listen "/tmp/unicorn.ideacrew.com.sock", :backlog => 64
 worker_processes 4
 
 # logging
-stderr_path "#{app_path}/log/unicorn.log"
-stdout_path "#{app_path}/log/unicorn.log"
+stderr_path "#{working_directory}/log/unicorn.log"
+stdout_path "#{working_directory}/log/unicorn.log"
 
 timeout 30
 
 # use correct gemfile on restarts
 before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = "#{app_path}/current/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "#{working_directory}/Gemfile"
   # ENV["BUNDLE_GEMFILE"] = File.join(app_path, 'Gemfile')
 end
 

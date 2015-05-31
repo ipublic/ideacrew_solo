@@ -12,6 +12,7 @@ set :repo_url, 'git@github.com:ipublic/ideacrew_solo.git'
 # set :executable_config_files, %w(config/unicorn_init.sh)
 
 # Default value for :linked_files is []
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
 # Default value for default_env is {}
@@ -26,8 +27,9 @@ set :deploy_to, "/home/#{fetch(:deploy_user)}/www/#{fetch(:full_app_name)}"
 set :keep_releases, 5
 
 # capistrano/rbenv setup
-set :rbenv_path, "~/.rbenv"
+set :rbenv_roles, :all
 set :rbenv_type, :user
+set :rbenv_path, "~/.rbenv"
 set :rbenv_ruby, "2.1.2"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}

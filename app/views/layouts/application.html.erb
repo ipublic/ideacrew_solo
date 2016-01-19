@@ -5,13 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag "favicon.ico" %>
-
   <title>IdeaCrew connects people with health care.</title>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,7 +38,6 @@
           </button>
           <%= image_tag "ideacrew-logo-no-cross.png", alt: "IdeaCrew", class: "navbar-brand" %>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-nav">
           <ul id="top-nav" class="nav navbar-nav navbar-right">
@@ -55,15 +51,11 @@
       </div><!-- /.container-fluid -->
     </nav>
   </header>
-
   <%= yield %>
-
   <footer class="footer">
     <div class="container">
       <p class="text-muted">&nbsp;</p>
     </div>
   </footer>
-
 </body>
-
 </html>
